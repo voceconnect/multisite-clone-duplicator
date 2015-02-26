@@ -60,7 +60,7 @@ if( !class_exists( 'MUCD_Data' ) ) {
                 $table_name = $to_site_prefix . substr( $table, $from_site_prefix_length );
 
                 // Get Schema name (for multibase DB as with HyberDB plugin)
-                $sql_query = $wpdb->prepare('SELECT TABLE_SCHEMA FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = \'%s\'', $table);
+                $sql_query = $wpdb->prepare('SELECT TABLE_SCHEMA FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = \'%s\'', DB_NAME);
                 $schema = MUCD_Data::do_sql_query($sql_query, 'var');
 
                 // Drop table if exists
